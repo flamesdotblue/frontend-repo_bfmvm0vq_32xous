@@ -1,28 +1,35 @@
-import { useState } from 'react'
+import Hero from './components/Hero';
+import Plans from './components/Plans';
+import CoverageForm from './components/CoverageForm';
+import StrategyGuide from './components/StrategyGuide';
 
-function App() {
-  const [count, setCount] = useState(0)
-
+function Footer() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 flex items-center justify-center">
-      <div className="bg-white p-8 rounded-lg shadow-lg">
-        <h1 className="text-3xl font-bold text-gray-800 mb-4">
-          Vibe Coding Platform
-        </h1>
-        <p className="text-gray-600 mb-6">
-          Your AI-powered development environment
-        </p>
-        <div className="text-center">
-          <button
-            onClick={() => setCount(count + 1)}
-            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded"
-          >
-            Count is {count}
-          </button>
-        </div>
+    <footer className="bg-gray-900 text-gray-300 py-10">
+      <div className="container mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <p className="text-sm">© {new Date().getFullYear()} HiFi — HiFiber Pvt Ltd. All rights reserved.</p>
+        <nav className="text-sm flex gap-4">
+          <a href="#plans" className="hover:text-white">Plans</a>
+          <a href="#coverage" className="hover:text-white">Coverage</a>
+          <a href="#guide" className="hover:text-white">Strategy</a>
+        </nav>
       </div>
-    </div>
-  )
+    </footer>
+  );
 }
 
-export default App
+export default function App() {
+  return (
+    <div className="min-h-screen flex flex-col bg-white">
+      <Hero />
+      <main className="flex-1">
+        <Plans />
+        <CoverageForm />
+        <div id="guide">
+          <StrategyGuide />
+        </div>
+      </main>
+      <Footer />
+    </div>
+  );
+}
