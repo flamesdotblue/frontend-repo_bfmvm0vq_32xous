@@ -1,63 +1,59 @@
-import { Rocket, Wifi, Phone, Shield, MapPin } from 'lucide-react';
+import { Rocket, Wifi, Shield, Settings } from "lucide-react";
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-indigo-600 via-indigo-500 to-indigo-400 text-white">
-      <div className="absolute inset-0 opacity-20 pointer-events-none" aria-hidden>
-        <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-          <defs>
-            <linearGradient id="grad" x1="0" x2="1" y1="0" y2="1">
-              <stop offset="0%" stopColor="#ffffff" stopOpacity="0.25" />
-              <stop offset="100%" stopColor="#ffffff" stopOpacity="0" />
-            </linearGradient>
-          </defs>
-          <rect width="100%" height="100%" fill="url(#grad)" />
-        </svg>
-      </div>
-
-      <div className="container mx-auto px-6 pt-24 pb-28">
-        <div className="max-w-3xl">
-          <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-sm backdrop-blur">
-            <Rocket className="h-4 w-4" />
-            Introducing HiFi by HiFiber Pvt Ltd
-          </span>
-          <h1 className="mt-5 text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight">
-            Lightning‑fast Internet for homes and businesses
-          </h1>
-          <p className="mt-4 text-lg sm:text-xl text-white/90">
-            Grow with the ISP that cares about speed, reliability, and service. Switch to HiFi and experience seamless streaming, gaming, and work—without interruptions.
-          </p>
-
-          <div className="mt-8 flex flex-col sm:flex-row gap-3">
-            <a href="#plans" className="inline-flex items-center justify-center gap-2 rounded-lg bg-white text-indigo-700 px-6 py-3 font-semibold shadow hover:bg-indigo-50 transition">
-              <Wifi className="h-5 w-5" />
-              View Plans
-            </a>
-            <a href="#coverage" className="inline-flex items-center justify-center gap-2 rounded-lg bg-indigo-700/60 px-6 py-3 font-semibold hover:bg-indigo-700 transition">
-              <MapPin className="h-5 w-5" />
-              Check Coverage
-            </a>
+    <section className="relative overflow-hidden bg-gradient-to-br from-indigo-600 via-blue-600 to-sky-500 text-white">
+      <div className="mx-auto max-w-7xl px-6 py-20">
+        <div className="grid items-center gap-10 md:grid-cols-2">
+          <div>
+            <div className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1 text-sm backdrop-blur">
+              <Shield className="h-4 w-4" />
+              <span>HiFiber Pvt Ltd • HiFi ISP</span>
+            </div>
+            <h1 className="mt-6 text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl">
+              Blazing‑fast Internet for modern homes and businesses
+            </h1>
+            <p className="mt-4 text-white/90">
+              Ultra‑low latency, rock‑solid reliability, and premium support. Stream, work, and play without limits.
+            </p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <a href="#plans" className="inline-flex items-center gap-2 rounded-lg bg-white px-5 py-3 font-medium text-indigo-700 shadow hover:opacity-95">
+                <Rocket className="h-5 w-5" /> View Plans
+              </a>
+              <a href="#coverage" className="inline-flex items-center gap-2 rounded-lg bg-white/10 px-5 py-3 font-medium text-white backdrop-blur hover:bg-white/20">
+                <Wifi className="h-5 w-5" /> Check Coverage
+              </a>
+              <a href="#admin" className="inline-flex items-center gap-2 rounded-lg bg-white/10 px-5 py-3 font-medium text-white backdrop-blur hover:bg-white/20">
+                <Settings className="h-5 w-5" /> Admin Panel
+              </a>
+            </div>
           </div>
-
-          <div className="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-4 text-sm text-white/90">
-            <Feature icon={<Shield className="h-5 w-5" />} label="99.9% Uptime SLA" />
-            <Feature icon={<Phone className="h-5 w-5" />} label="24/7 Support" />
-            <Feature icon={<Wifi className="h-5 w-5" />} label="Wi‑Fi 6 Router" />
-            <Feature icon={<Rocket className="h-5 w-5" />} label="Fiber‑backed Speeds" />
+          <div className="relative">
+            <div className="pointer-events-none absolute inset-0 -z-0 bg-[radial-gradient(ellipse_at_top_right,rgba(255,255,255,0.25),transparent_50%)]" />
+            <div className="rounded-2xl border border-white/10 bg-white/5 p-6 shadow-xl backdrop-blur">
+              <div className="grid grid-cols-3 gap-4 text-center">
+                <div className="rounded-xl bg-white/10 p-4">
+                  <p className="text-3xl font-bold">1 Gbps</p>
+                  <p className="text-sm text-white/80">Top Speed</p>
+                </div>
+                <div className="rounded-xl bg-white/10 p-4">
+                  <p className="text-3xl font-bold">24/7</p>
+                  <p className="text-sm text-white/80">Support</p>
+                </div>
+                <div className="rounded-xl bg-white/10 p-4">
+                  <p className="text-3xl font-bold">99.9%</p>
+                  <p className="text-sm text-white/80">Uptime</p>
+                </div>
+              </div>
+              <div className="mt-6 rounded-xl bg-gradient-to-r from-white/10 to-white/5 p-6">
+                <p className="text-white/90">
+                  Get Hi points on every bill payment. Redeem 1 Hi point = ₹1 on upgrades and add‑ons.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
-  );
-}
-
-function Feature({ icon, label }) {
-  return (
-    <div className="flex items-center gap-2">
-      <span className="inline-flex items-center justify-center rounded-md bg-white/10 p-2">
-        {icon}
-      </span>
-      <span>{label}</span>
-    </div>
   );
 }

@@ -1,80 +1,66 @@
-import { Check, Wifi, Shield, Star } from 'lucide-react';
+import { Check, Zap, Shield } from "lucide-react";
 
 const plans = [
   {
-    name: 'Starter',
-    speed: '100 Mbps',
-    price: '₹499',
-    period: 'mo',
-    features: ['Unlimited Data', 'Wi‑Fi 6 Router', 'Free Installation'],
+    name: "Starter",
+    price: 499,
+    speed: "50 Mbps",
+    features: ["Unlimited Data", "Free Router", "Basic Support"],
     highlight: false,
   },
   {
-    name: 'Turbo',
-    speed: '300 Mbps',
-    price: '₹799',
-    period: 'mo',
-    features: ['Unlimited Data', 'Wi‑Fi 6 Router', 'Priority Support'],
+    name: "Pro",
+    price: 799,
+    speed: "150 Mbps",
+    features: ["Unlimited Data", "Dual‑Band Router", "Priority Support"],
     highlight: true,
   },
   {
-    name: 'Gigabit',
-    speed: '1 Gbps',
-    price: '₹1499',
-    period: 'mo',
-    features: ['Unlimited Data', 'Static IP (Optional)', 'Premium Support'],
+    name: "Ultra",
+    price: 1199,
+    speed: "300 Mbps",
+    features: ["Unlimited Data", "Wi‑Fi 6 Router", "24/7 Concierge"],
     highlight: false,
   },
 ];
 
 export default function Plans() {
   return (
-    <section id="plans" className="py-20 bg-white">
-      <div className="container mx-auto px-6">
-        <div className="text-center max-w-2xl mx-auto">
-          <span className="inline-flex items-center gap-2 rounded-full bg-indigo-50 text-indigo-700 px-3 py-1 text-sm">
-            <Wifi className="h-4 w-4" /> Plans & Pricing
-          </span>
-          <h2 className="mt-4 text-3xl sm:text-4xl font-bold text-gray-900">Choose speed that fits you</h2>
-          <p className="mt-2 text-gray-600">Simple, transparent pricing with no hidden fees. Upgrade anytime.</p>
+    <section id="plans" className="bg-gray-50 py-16">
+      <div className="mx-auto max-w-7xl px-6">
+        <div className="mx-auto max-w-2xl text-center">
+          <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Simple, transparent pricing</h2>
+          <p className="mt-3 text-gray-600">No hidden fees. Upgrade anytime. Earn Hi points on every payment.</p>
         </div>
-
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {plans.map((p) => (
             <div
               key={p.name}
-              className={`relative rounded-2xl border ${
-                p.highlight ? 'border-indigo-600 ring-2 ring-indigo-600' : 'border-gray-200'
-              } bg-white p-6 shadow-sm`}
+              className={`rounded-2xl border p-6 shadow-sm ${
+                p.highlight ? "border-indigo-500 bg-indigo-50" : "border-gray-200 bg-white"
+              }`}
             >
-              {p.highlight && (
-                <span className="absolute -top-3 right-4 inline-flex items-center gap-1 rounded-full bg-indigo-600 text-white px-3 py-1 text-xs font-semibold shadow">
-                  <Star className="h-3 w-3" /> Popular
-                </span>
-              )}
-              <div className="flex items-baseline justify-between">
+              <div className="flex items-center justify-between">
                 <h3 className="text-xl font-semibold text-gray-900">{p.name}</h3>
-                <span className="text-indigo-700 font-bold">{p.speed}</span>
+                {p.highlight ? <Zap className="h-5 w-5 text-indigo-600" /> : <Shield className="h-5 w-5 text-gray-400" />}
               </div>
-              <div className="mt-4 flex items-end gap-1">
-                <span className="text-3xl font-extrabold text-gray-900">{p.price}</span>
-                <span className="text-gray-600">/{p.period}</span>
-              </div>
-              <ul className="mt-6 space-y-2">
+              <p className="mt-2 text-3xl font-bold text-gray-900">₹{p.price}<span className="text-base font-normal text-gray-600">/mo</span></p>
+              <p className="mt-1 text-sm text-gray-600">Up to {p.speed}</p>
+              <ul className="mt-4 space-y-2">
                 {p.features.map((f) => (
                   <li key={f} className="flex items-center gap-2 text-gray-700">
                     <Check className="h-4 w-4 text-green-600" /> {f}
                   </li>
                 ))}
               </ul>
-              <button className={`mt-6 w-full rounded-lg px-4 py-3 font-semibold transition ${
-                p.highlight ? 'bg-indigo-600 text-white hover:bg-indigo-700' : 'bg-gray-900 text-white hover:bg-black'
-              }`}>
-                Get {p.name}
-              </button>
-              <div className="mt-3 text-xs text-gray-500 flex items-center gap-1">
-                <Shield className="h-3 w-3" /> 30‑day happiness guarantee
-              </div>
+              <a
+                href="#coverage"
+                className={`mt-6 inline-flex w-full items-center justify-center rounded-lg px-4 py-2 font-medium shadow-sm ${
+                  p.highlight ? "bg-indigo-600 text-white hover:bg-indigo-700" : "bg-gray-900 text-white hover:bg-black"
+                }`}
+              >
+                Get Started
+              </a>
             </div>
           ))}
         </div>
